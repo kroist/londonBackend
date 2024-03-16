@@ -1,5 +1,5 @@
 
-export const socialNetworkAddress = '0x0078d1a140A37bf9966929933e9d0d140Ff4CE94';
+export const socialNetworkAddress = '0x667AE136698a7991CEdB6c09088E34dA5714C031';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDVdG8ZtddV2N34yn5bvlBUm3PmgBU8yyk",

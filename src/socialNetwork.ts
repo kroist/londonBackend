@@ -11,7 +11,7 @@ export type Project = {
     network: string,
     whitepaper: string,
     tvl: number,
-    score: number,
+    rating: number,
 };
 
 export type Comment = {
@@ -39,7 +39,7 @@ export const getProjectsContract = async function getProjectsContract(provider: 
             url: projects[i].url,
             whitepaper: "",
             tvl: 0,
-            score: 0,
+            rating: projects[i].rating,
         })
     }
     return retProjects;
@@ -81,6 +81,9 @@ export const refetchState = async function refetchState(
     console.log(projects);
 
     projects.forEach(async (project) => {
+
+        await saveProjectInFirebase(firebaseDb, project);
+
         const comments = await getCommentsContract(provider, project.id);
         console.log('---------');
         console.log(project.id);
@@ -124,7 +127,7 @@ export const saveProjectInFirebase = async function saveInFirebase(
             network: String(toAdd.network),
             whitepaper: String(toAdd.whitepaper),
             tvl: String(toAdd.whitepaper),
-            score: Number(toAdd.score),
+            rating: Number(toAdd.rating),
         }
     )
 }

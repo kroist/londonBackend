@@ -22,6 +22,17 @@ const socialNetworkAbi = [
         "type": "error"
     },
     {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "projectId",
+                "type": "uint256"
+            }
+        ],
+        "name": "ProjectNotExisting",
+        "type": "error"
+    },
+    {
         "anonymous": false,
         "inputs": [
             {
@@ -79,7 +90,13 @@ const socialNetworkAbi = [
             }
         ],
         "name": "addComment",
-        "outputs": [],
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -120,6 +137,24 @@ const socialNetworkAbi = [
             }
         ],
         "name": "changeCommentRating",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "projectId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "int256",
+                "name": "delta",
+                "type": "int256"
+            }
+        ],
+        "name": "changeProjectRating",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -208,6 +243,11 @@ const socialNetworkAbi = [
                         "internalType": "string",
                         "name": "url",
                         "type": "string"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "rating",
+                        "type": "int256"
                     }
                 ],
                 "internalType": "struct SocialNetwork.Project[]",
